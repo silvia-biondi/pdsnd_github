@@ -18,37 +18,37 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
-        try: 
+        try:
             city = input('What\'s the city you are interested in? Please type \'chicago\',\'new york city\' or \'washington\':\n').lower()
             city_list = ['chicago', 'new york city', 'washington']
             if city in city_list:
                 print('So let\'s see something about {} bikesharing!'.format(city.title()))
                 break
-            else: 
+            else:
                 raise ValueError('badinput')
         except:
             print('That\'s not a valid input.')
-        
+
     # get user input for month (all, january, february, ... , june)
     while True:
-        try: 
+        try:
             month = input('If you are interested in a specific month, please type it in letters, like \'month\'. \nPay attention: months are only available till june.\nIf you want to see all months, write \'all\'.\n').lower()
             month_list = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
             if month in month_list:
                 break
-            else: 
+            else:
                 raise ValueError('badinput')
         except:
             print('That\'s not a valid input.')
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
-        try: 
+        try:
             day = input('If you are interested in a specific day of the week, please type it in letters, like \'day\'.\nIf you want to see all days, write \'all\'.\n').lower()
             day_list = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','all']
             if day in day_list:
                 break
-            else: 
+            else:
                 raise ValueError('badinput')
         except:
             print('That\'s not a valid input.')
@@ -88,20 +88,20 @@ def load_data(city, month, day):
         months = ['january', 'february', 'march', 'april', 'may', 'june','july','august','september','october','november','december']
         month_series = pd.Series([1,2,3,4,5,6,7,8,9,10,11,12],index=months)
         month = month_series[month]
-        
+
         # filter by month to create the new dataframe
         df = df[df['month']==month]
-        
+
 
     # filter by day of week if applicable
     if day != 'all':
         days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday']
         day_series = pd.Series([0,1,2,3,4,5,6],index=days)
         day = day_series[day]
-        
+
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week']==day]
-    
+
     return df
 
 def time_stats(df):
@@ -111,14 +111,14 @@ def time_stats(df):
     start_time = time.time()
 
     # display the most common month
-    
+
     popular_month = df['month'].mode()[0]
     print('The most common month is: {}'.format(popular_month))
     # display the most common day of week
 
     popular_day = df['day_of_week'].mode()[0]
     print('The most common day of week is:{} '.format(popular_day))
-    
+
     # display the most common start hour
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
@@ -180,8 +180,8 @@ def user_stats(df):
     start_time = time.time()
 
     # Display counts of user types
- 
-        
+
+
     user_types = df['User Type'].value_counts()
     print('The counts of user types is: \n{}'.format(user_types))
 
@@ -189,7 +189,7 @@ def user_stats(df):
         # Display counts of gender
         gender = df['Gender'].value_counts()
         print('The counts of gender is: \n{}'.format(gender))
-    
+
     if 'Birth Year' in df.columns:
         # Display earliest, most recent, and most common year of birth
         earliest_birth = df['Birth Year'].sort_values(ascending = True).values[0]
@@ -197,13 +197,13 @@ def user_stats(df):
 
         most_recent_birth = df['Birth Year'].sort_values(ascending = False).values[0]
         print('The most recent year of birth is: {}'.format(most_recent_birth))
-        
+
         most_common_birth = df['Birth Year'].mode()[0]
         print('The most common year of birth is: {}'.format(most_common_birth))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def raw_data(df):
     """
     Asks user if he wants to see 5 lines of raw data, display that data if the answer is 'yes'
@@ -211,15 +211,15 @@ def raw_data(df):
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     i = 0
     while True:
-        try: 
+        try:
             raw_data = input('Would you like to see some lines of raw data (yes/no)?\n')
             raw_data = raw_data.lower()
             if raw_data == 'yes' or raw_data == 'y':
                 print(df[i:i+5])
-                i = i + 5
+                i += 5
             elif raw_data == 'no' or raw_data == 'n':
                 break
-            else: 
+            else:
                 raise ValueError('badinput')
         except:
             print('That\'s not a valid input.')
