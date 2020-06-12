@@ -11,4 +11,4 @@ The project is part of an on-line course about Python, SQL and Git
 bikeshare.py
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Udacity.com
