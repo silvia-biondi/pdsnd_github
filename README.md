@@ -2,10 +2,10 @@
 12th June 2020
 
 ### Project Title
-Replace the Project Title
+Programming for Data Science with Python - GitHub Project
 
 ### Description
-Describe what your project is about and what it does
+The project is part of an on-line course about Python, SQL and Git
 
 ### Files used
 Include the files used
