@@ -20,7 +20,11 @@ def get_filters():
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         try:
+<<<<<<< HEAD
             city = input('What\'s the city you are interested in? Please type \'chicago\',\'new york city\' or \'washington\':\n').lower()
+=======
+            city = input('What\'s the city you are interested in? Please type \'chicago\', \'new york city\' or \'washington\':\n').lower()
+>>>>>>> refactoring
             city_list = ['chicago', 'new york city', 'washington']
             if city in city_list:
                 print('So let\'s see something about {} bikesharing!'.format(city.title()))
@@ -205,7 +209,10 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+<<<<<<< HEAD
 # a feature to allow the user to check raw data
+=======
+>>>>>>> refactoring
 def raw_data(df):
     """
     Asks user if he wants to see 5 lines of raw data, display that data if the answer is 'yes'
@@ -218,7 +225,7 @@ def raw_data(df):
             raw_data = raw_data.lower()
             if raw_data == 'yes' or raw_data == 'y':
                 print(df[i:i+5])
-                i = i + 5
+                i += 5
             elif raw_data == 'no' or raw_data == 'n':
                 break
             else:
