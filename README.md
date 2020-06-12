@@ -9,6 +9,7 @@ The project is part of an on-line course about Python, SQL and Git
 
 ### Files used
 bikeshare.py
+.gitignore
 
 ### Credits
 Udacity.com
