@@ -205,6 +205,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+# a feature to allow the user to check raw data
 def raw_data(df):
     """
     Asks user if he wants to see 5 lines of raw data, display that data if the answer is 'yes'
